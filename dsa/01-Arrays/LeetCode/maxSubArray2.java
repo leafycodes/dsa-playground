@@ -1,4 +1,5 @@
 //we use prefix aray method. Time Comp: O(n^2)
+//This is Still TLE for 6 cases.
 class Solution {
     public int maxSubArray(int[] nums) {
         int maxSum = Integer.MIN_VALUE;
