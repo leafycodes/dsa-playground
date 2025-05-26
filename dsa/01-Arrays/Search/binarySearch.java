@@ -4,6 +4,8 @@ public class binarySearch {
 
     // binary search requires a sorted array tocorrectly compare the target and the
     // index
+
+    // Time Complexity: O(log n)
     public static void main(String[] args) {
         int[] arr = { 2, 56, 7, 43, 23, 71, 17, 45, 21, 98 };
         Arrays.sort(arr);

@@ -7,6 +7,7 @@ public class linearSearch {
         System.out.println(index != -1 ? target + " found at " + index : "TARGET NOT FOUND");
     }
 
+    // Time Complexity: O(n)
     public static int linSearch(int[] arr, int target) {
         for (int i = 0; i < arr.length; i++) {
             if (target == arr[i]) {
