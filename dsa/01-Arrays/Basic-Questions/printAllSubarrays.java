@@ -8,14 +8,14 @@ public class printAllSubarrays {
             // j starts from i to include the same element as i, as a single elemetn is also
             // a subarray
             for (int j = i; j < arr.length; j++) {
+                System.out.print("-> ");
                 for (int k = i; k <= j; k++) {
                     System.out.print(arr[k] + " ");
                 }
                 System.out.println();
                 subarrays++;
             }
-            System.out.println();
         }
-        System.out.println("total subarrays: " + subarrays);
+        System.out.println("\ntotal subarrays: " + subarrays);
     }
 }
