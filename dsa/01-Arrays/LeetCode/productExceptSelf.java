@@ -5,6 +5,7 @@
 
 class Solution {
     public int[] productExceptSelf(int[] nums) {
+        // result array
         int res[] = new int[nums.length];
 
         for (int i = 0; i < nums.length; i++) {

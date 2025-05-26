@@ -6,6 +6,7 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
         int n = nums.length, product = 1, zeroCount = 0;
+        // result array
         int[] result = new int[n];
 
         for (int num : nums) {
