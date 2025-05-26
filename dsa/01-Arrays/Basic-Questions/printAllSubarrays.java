@@ -9,6 +9,8 @@ public class printAllSubarrays {
             // a subarray
             for (int j = i; j < arr.length; j++) {
                 System.out.print("-> ");
+
+                // goes from i (start) to j (end)
                 for (int k = i; k <= j; k++) {
                     System.out.print(arr[k] + " ");
                 }
