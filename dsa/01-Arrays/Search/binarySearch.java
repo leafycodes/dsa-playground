@@ -23,6 +23,7 @@ public class binarySearch {
         System.out.println(b != -1 ? target + " Found at index " + b : target + " NOT FOUND IN ARRAY");
     }
 
+    // iterative binary search
     public static int binSearchIter(int[] arr, int target) {
         int start = 0, end = arr.length - 1;
         while (start <= end) {
@@ -38,6 +39,7 @@ public class binarySearch {
         return -1;
     }
 
+    // recursive binary search
     public static int binSearchRec(int[] arr, int target) {
         return helper(arr, 0, arr.length - 1, target);
     }
