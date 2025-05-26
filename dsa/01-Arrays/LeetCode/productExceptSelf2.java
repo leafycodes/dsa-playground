@@ -5,7 +5,6 @@
 class Solution {
     public int[] productExceptSelf(int[] nums) {
         // the size will be minimum of 2, so base case not needed
-        // result array is the nums itself
         int n = nums.length;
 
         int[] prefix = new int[n];
