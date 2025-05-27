@@ -11,6 +11,8 @@ public class bubbleSort {
     }
 
     public static void sort(int[] nums) {
+
+        // idea is to swap the largest element to the last at each pass
         for (int i = 0; i < nums.length - 1; i++) {
 
             // if no swaps were done then this value will remain false
