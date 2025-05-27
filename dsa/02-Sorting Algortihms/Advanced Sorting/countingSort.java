@@ -1,5 +1,5 @@
 public class countingSort {
-    // it sorts in the time complexity of O(n + n * range), the bigger one
+    // it sorts in the time complexity of O(n + range), the bigger one
     // dominates.
     // it gives solution i nlinear time if you get a good case, the range (min to
     // max) is small
