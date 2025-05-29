@@ -10,6 +10,7 @@ public class linearSearch {
         System.out.println(res[0] != -1 ? "found at " + res[0] + ", " + res[1] : "NOT FOUND");
     }
 
+    // O(n*m) TC
     private static int[] search(int matrix[][], int key) {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
