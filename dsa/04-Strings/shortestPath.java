@@ -1,4 +1,4 @@
-public class shortestPah {
+public class shortestPath {
     public static void main(String[] args) {
         String path = "WNEENESENNN";
         System.out.println(getDisplacement(path));
