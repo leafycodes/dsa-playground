@@ -6,7 +6,6 @@ public class towerOfHanoi {
 
     private static void towerOfHanoiSteps(int n, String src, String helper, String dest) {
         if (n == 0) {
-
             return;
         }
 
