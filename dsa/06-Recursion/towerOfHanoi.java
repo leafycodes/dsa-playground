@@ -9,6 +9,11 @@ public class towerOfHanoi {
             return;
         }
 
+        // if (n == 1) {
+        // System.out.println("move disk " + n + " from " + src + " to " + dest);
+        // return;
+        // }
+
         towerOfHanoiSteps(n - 1, src, dest, helper);
         System.out.println("move disk " + n + " from " + src + " to " + dest);
         towerOfHanoiSteps(n - 1, helper, src, dest);
