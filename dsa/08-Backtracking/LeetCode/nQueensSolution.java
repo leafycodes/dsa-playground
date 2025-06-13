@@ -2,10 +2,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class Solution {
-    List<List<String>> res = new ArrayList<>();
+public class nQueensSolution {
+    static List<List<String>> res = new ArrayList<>();
 
-    public List<List<String>> solveNQueens(int n) {
+    public static List<List<String>> solveNQueens(int n) {
         if (n == 0 || n == 1) {
             res.add(new ArrayList<>(Arrays.asList("Q")));
             return res;
@@ -21,7 +21,7 @@ class Solution {
         return res;
     }
 
-    private void nQueens(List<String> board, int row) {
+    private static void nQueens(List<String> board, int row) {
         if (row == board.size()) {
             res.add(new ArrayList<>(board));
             return;
@@ -38,7 +38,7 @@ class Solution {
         }
     }
 
-    private boolean isSafe(List<String> board, int row, int col) {
+    private static boolean isSafe(List<String> board, int row, int col) {
         for (int i = row - 1; i >= 0; i--) {
             if (board.get(i).charAt(col) == 'Q') {
                 return false;
@@ -57,5 +57,18 @@ class Solution {
             }
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        int n = 4;
+
+        List<List<String>> result = solveNQueens(n);
+        for (List<String> board : result) {
+            System.out.println("------------ solution --------------");
+            for (String row : board) {
+                System.out.println(row);
+            }
+            System.out.println();
+        }
     }
 }
