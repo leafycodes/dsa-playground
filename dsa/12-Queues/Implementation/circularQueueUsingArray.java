@@ -70,8 +70,8 @@ public class circularQueueUsingArray {
         System.out.println(q.remove());
         q.add(5);
 
-        for (int i = 0; i < q.size; i++) {
-            System.out.print(q.peek() + " ");
+        while (!q.isEmpty()) {
+            System.out.println(q.peek());
             q.remove();
         }
     }
