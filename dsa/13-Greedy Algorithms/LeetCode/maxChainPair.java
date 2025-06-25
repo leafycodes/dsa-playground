@@ -11,7 +11,7 @@ class Solution {
 
         int count = 1;
         int lastselected = pairs[0][1];
-        for (int i = 0; i < pairs.length; i++) {
+        for (int i = 1; i < pairs.length; i++) {
             if (pairs[i][0] > lastselected) {
                 count++;
                 lastselected = pairs[i][1];
