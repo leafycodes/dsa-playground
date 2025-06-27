@@ -34,7 +34,6 @@ public class buildWithPreorder {
 
         BinaryTree tree = new BinaryTree();
         Node root = tree.buildTree(nodes);
-
         System.out.println(root.data);
     }
 }
