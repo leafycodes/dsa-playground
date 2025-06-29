@@ -35,3 +35,8 @@ class Solution {
         inOrder(node.right);
     }
 }
+
+// same (literally the same) for question 0530.
+// I did not do this one [0783] by taking the two smallest ones or the two left
+// most ones in a BST, rather finding minimum at every node. Tus, it works here
+// as well
