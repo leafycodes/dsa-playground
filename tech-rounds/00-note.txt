@@ -1,1 +1,15 @@
 This is where I put up all the questions that I was asked in the Interviews, Technical rounds, coding rounds, etc.
+
+NOTE: Some codes, I figured out in the code rounds and passed.
+
+Some codes, I was able to figure out but - were tricky to code, faced lack of time, made minor runtime erros (there is less time to figure out the errors so moved on) - any or all of them (yes, I do face burnout sometimes).
+
+Some codes, I - couldn't figure out during the test and/or couldn't formulate an intuition - Unfortunately.
+
+And some codes, I actually need help to even get a starting poitn or arrive at an intuition. Again, unfortunately. But it's a learning experience.
+
+If I couldn't figure out a problem, it is because I have never seen a problem of that pattern before and that pattern is new to me. Which means, I have to start from scratch making my own algorithms and thinking about all the edge/corner cases.
+
+But here, I post the complete and working codes. Be it done myself, taken help from, or using the internet to figure out the pattern. This directory holds complete and running codes, which is helpful to understand the pattern.
+
+THANK YOU!!
