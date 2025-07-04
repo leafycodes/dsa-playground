@@ -1,4 +1,4 @@
-// This is from LGSI: LG Soft India Coding round (1/2) only asled for c/c++
+// This is from LGSI: LG Soft India Coding round (1/2) only asked for c/c++
 
 // question in short
 
