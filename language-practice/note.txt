@@ -1,0 +1,1 @@
+This repo is where i learn or experiment about languages. Well, mostly JS or CPP.
