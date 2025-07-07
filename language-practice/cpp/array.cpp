@@ -12,7 +12,7 @@ int main() {
   int matrix[3][5];
   matrix[3][1] = 23;
   cout << endl << matrix[3][1];
-  cout << matrix[0][0];
+  cout << matrix[0][0];  // garbage values
 
   return 0;
 }
