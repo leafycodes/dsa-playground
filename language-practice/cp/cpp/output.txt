@@ -1,0 +1,3 @@
+hello, Noob
+the value of x is: 999999
+18
