@@ -14,6 +14,12 @@ class Point {
     // Destructor
     ~Point() { std::cout << "Point destroyed at (" << x << ", " << y << ")\n"; }
 
+    // Copy Constructor
+    Point(const Point& other) : x(other.x), y(other.y) {
+        std::cout << "Point COPIED from (" << other.x << ", " << other.y
+                  << ")\n";
+    }
+
     // Method to display coordinates
     void display() const {
         std::cout << "Current position: (" << x << ", " << y << ")\n";
@@ -25,7 +31,16 @@ class Point {
         y += dy;
         std::cout << "Moved by (" << dx << ", " << dy << ")\n";
     }
+
+    friend void print_point(Point point);
 };
+
+void print_point(Point point) {
+    std::cout << point.x << " " << point.y << std::endl;
+}
+
+// Point::static_var=0; this is a static var and needs to be decalred outside
+// the class // Point::method_name to access. static cant access non-static ones
 
 int main() {
     // Create a point
@@ -45,6 +60,7 @@ int main() {
         // p2 will be destroyed here when the block ends
     }
 
+    // print_point(p1);
     std::cout << "Back in main after inner block\n";
 
     // p1 will be destroyed when main() ends
