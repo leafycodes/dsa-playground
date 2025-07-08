@@ -3,8 +3,8 @@ using namespace std;
 
 struct Node {
     int data;
-    struct Node* left;
-    struct Node* right;
+    Node* left;
+    Node* right;
 
     Node(int data) : left(nullptr), right(nullptr) { this->data = data; }
 };
