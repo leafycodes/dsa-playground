@@ -3,38 +3,43 @@ using namespace std;
 
 class Solution {
    public:
-    int maxEvents(vector<vector<int>>& events) {
-        if (events.empty()) {
-            return 0;
+    bool is_valid(vector<vector<int>>& image, int& row, int& col, int& color) {
+        return row >= 0 && row < image.size() && col >= 0 &&
+               col < image[0].size() && image[row][col] == color;
+    }
+
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc,
+                                  int color) {
+        // add the pixels to the queue
+        // add it's adjacent to the queue
+        // remove from queue and color it
+        // case 1: 1st time we come
+        // ccase 2: not 1st time
+        queue<pair<int, int>> q;
+        q.push({sr, sc});
+        pair<int, int> directions[] = {{1, 0}, {-1, 0}, {0, -1}, {0, 1}};
+
+        while (!q.empty()) {
+            auto curr = q.front();
+            q.pop();
+
+            int temp_color = image[curr.first][curr.second];
+            image[curr.first][curr.second] = color;
+            if (image[curr.first][curr.second] == color) {
+                continue;
+            }
+            for (auto dir : directions) {
+                int dx = curr.first + dir.first;
+                int dy = curr.second + dir.second;
+
+                if (is_valid(image, dx, dy, temp_color)) {
+                    q.push({dx, dy});
+                }
+            }
         }
 
-        sort(events.begin(), events.end());
-
-        priority_queue<int, vector<int>, greater<int>> min_heap;
-        int max_events = 0;
-        int i = 0;
-        int n = events.size();
-        int current_day = 0;
-
-        while (!min_heap.empty() || i < n) {
-            if (min_heap.empty()) {
-                current_day = events[i][0];
-            }
-
-            while (i < n && events[i][0] <= current_day) {
-                min_heap.push(events[i][1]);
-                i++;
-            }
-
-            min_heap.pop();
-            max_events++;
-            current_day++;
-
-            while (!min_heap.empty() && min_heap.top() < current_day) {
-                min_heap.pop();
-            }
-        }
-
-        return max_events;
+        return image;
     }
 };
+
+int main() { return 0; }

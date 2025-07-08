@@ -25,6 +25,11 @@ class Student : AbstractStudent {
         this->age = age;
     }
 
+    Student() {
+        name = "anish";
+        age = 0;
+    }
+
     void set_name(string name) {
         if (name != "anish") {
             this->name = name;
@@ -93,6 +98,8 @@ int main() {
     Student s1 = Student("anish", 21);
     // s1.age = 21;
     // s1.name = "Anish";
+    Student s2 = Student();
+    s2.introduce();
 
     s1.introduce();
     s1.set_name("coolGuy123");
