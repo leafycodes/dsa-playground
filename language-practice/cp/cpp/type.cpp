@@ -14,7 +14,7 @@ class Solution {
         // add it's adjacent to the queue
         // remove from queue and color it
         // case 1: 1st time we come
-        // ccase 2: not 1st time
+        // case 2: not 1st time
         queue<pair<int, int>> q;
         q.push({sr, sc});
         pair<int, int> directions[] = {{1, 0}, {-1, 0}, {0, -1}, {0, 1}};
@@ -23,11 +23,13 @@ class Solution {
             auto curr = q.front();
             q.pop();
 
-            int temp_color = image[curr.first][curr.second];
-            image[curr.first][curr.second] = color;
             if (image[curr.first][curr.second] == color) {
                 continue;
             }
+
+            int temp_color = image[curr.first][curr.second];
+            image[curr.first][curr.second] = color;
+
             for (auto dir : directions) {
                 int dx = curr.first + dir.first;
                 int dy = curr.second + dir.second;
