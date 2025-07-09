@@ -30,8 +30,11 @@ void min_time(vector<int>& nums, int n, int k) {
         visited[nums[i]] = true;
     }
 
-    while (q.size() > 0) {
-        for (int i = 0; i < q.size(); i++) {
+    while (q.size() >
+           0) {  // Each iteration of this loop represents one unit of time
+        for (int i = 0; i < q.size();
+             i++) {  // loop processes all the positions that were filled in the
+                     // previous time unit
             int curr = q.front();
             q.pop();
 
@@ -46,7 +49,11 @@ void min_time(vector<int>& nums, int n, int k) {
             }
         }
 
-        time++;
+        time++;  // incremented one extra time after all slots have already been
+                 // filled.
+
+        // after the last slot is filled, the time variable is still incremented
+        // once more before the loop exits.
     }
 
     cout << time - 1;
