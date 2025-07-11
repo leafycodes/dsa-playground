@@ -94,6 +94,7 @@ class MyHashMap {
 
         if (lli != -1) {
             buckets[bi].remove(lli);
+            n--;
         }
     }
 }

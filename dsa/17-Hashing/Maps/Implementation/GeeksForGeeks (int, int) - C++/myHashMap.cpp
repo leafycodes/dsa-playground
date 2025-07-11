@@ -1,6 +1,13 @@
 // User function Template for C++
+#include <bits/stdc++.h>
+using namespace std;
 
 class MyHashMap {
+   private:
+    int n;
+    int N;
+    forward_list<pair<int, int>> ll[];
+
    public:
     /** Initialize your data structure here. */
     MyHashMap() {}
