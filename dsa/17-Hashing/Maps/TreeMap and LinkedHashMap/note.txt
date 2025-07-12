@@ -1,0 +1,36 @@
+hashmap properties:
+
+- TC: get, put, containsKey, remove: O(1)
+- iteration order : random
+- null keys are allowed
+- interface: map
+- synchronization: None, use Collections. Synchronized Map()
+- ds: List of buckets, if more than 8 entries in bucket then Java 8 will switch to balanced tree from linked list
+- applications: General Purpose, fast retrieval, non-synchronized.ConcurrentHashMap can be used where concurrency is involved.
+- key requirement: Equals() and hashCode() needs to be overwritten.
+
+
+
+linkedhashmap properties:
+
+- TC: get, put, containsKey, remove: O(1)
+- iteration order : Sorted according to either Insertion Order of Access Order (as specified during construction)
+- null keys are allowed
+- interface: map
+- synchronization: None, use Collections. Synchronized Map()
+- ds: Doubly Linked List ofBuckets
+- applications: Can be used for LRU cache, other places where insertion or access order matters
+- key requirement: Equals() and hashCode() needs to be overwritten.
+
+
+
+treemap properties:
+
+- TC: get, put, containsKey, remove: O(1)
+- iteration order : Sorted according to either natural Order of keys or comparator(as specified during construction)
+- null keys Not allowed if keys uses Natural Ordering or Comparator does not support comparison on null keys.
+- interface: map, sorted map, navigable map
+- synchronization: None, use Collections. Synchronized Map()
+- ds: Doubly Linked List ofBuckets
+- applications: Algorithms where Sorted or Navigable features are required. For example, find among the list of employees whose salary is next to given employee, Range Search, etc.
+- key requirement: Comparator needs to be supplied for key implementation, otherwise natural order will be used to sort the keys.
