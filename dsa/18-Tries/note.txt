@@ -1,0 +1,8 @@
+trie:   aka digital search trees
+        aka prefix trees
+        aka reTRIEval trees
+
+generally used to solve String-related problems.
+they store prefixes only once.
+they are k-ary tree.
+memory-wise bulky, TC-wise efficient/fast.
