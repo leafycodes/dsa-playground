@@ -1,14 +1,23 @@
-import java.util.Scanner;
+import java.util.*;
 
-public class Type {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+class Solution {
+    public int matchPlayersAndTrainers(int[] players, int[] trainers) {
+        Arrays.sort(players);
+        Arrays.sort(trainers);
 
-        String name = sc.nextLine();
-        System.out.println("hello, " + name);
+        int count = 0;
+        int j = 0;
+        for (int i = 0; i < players.length; i++) {
+            while (j < trainers.length && players[i] > trainers[j]) {
+                j++;
+            }
 
-        int x = sc.nextInt();
-        System.out.println("you entered: " + x);
-        sc.close();
+            if (j < trainers.length && players[i] <= trainers[j]) {
+                count++;
+                j++;
+            }
+        }
+
+        return count;
     }
 }
