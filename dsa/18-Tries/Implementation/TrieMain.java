@@ -53,24 +53,22 @@ public class TrieMain {
             return false;
         }
 
-        // Base case: reached the end of the word
+        // base case: reached the end of the word
         if (depth == word.length()) {
             if (!node.eow) {
                 return false; // word doesn't exist in trie
             }
             node.eow = false; // mark as non-end of word
-
-            // If the node has no children, it can be deleted
-            return isEmpty(node);
+            return isEmpty(node);// if the node has no children, it can be deleted
         }
 
-        // Recursive case: process the next character
+        // recursive case: process the next character
         int index = word.charAt(depth) - 'a';
         if (remove(node.child[index], word, depth + 1)) {
-            // Child node can be deleted
+            // child node can be deleted
             node.child[index] = null;
 
-            // If current node is not end of word and has no other children, it can be
+            // if current node is not end of word and has no other children, it can be
             // deleted
             return !node.eow && isEmpty(node);
         }
