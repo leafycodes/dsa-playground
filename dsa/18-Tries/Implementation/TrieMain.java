@@ -38,6 +38,45 @@ public class TrieMain {
         return curr.eow;
     }
 
+    public static boolean isEmpty(Node node) {
+        for (int i = 0; i < 26; i++) {
+            if (node.child[i] != null) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static boolean remove(Node node, String word, int depth) {
+        if (node == null) {
+            return false;
+        }
+
+        // Base case: reached the end of the word
+        if (depth == word.length()) {
+            if (!node.eow) {
+                return false; // word doesn't exist in trie
+            }
+            node.eow = false; // mark as non-end of word
+
+            // If the node has no children, it can be deleted
+            return isEmpty(node);
+        }
+
+        // Recursive case: process the next character
+        int index = word.charAt(depth) - 'a';
+        if (remove(node.child[index], word, depth + 1)) {
+            // Child node can be deleted
+            node.child[index] = null;
+
+            // If current node is not end of word and has no other children, it can be
+            // deleted
+            return !node.eow && isEmpty(node);
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         String words[] = { "the", "a", "there", "their", "any", "thee" };
 
@@ -46,5 +85,9 @@ public class TrieMain {
         }
         System.out.println(search("thee"));
         System.out.println(search("pizza"));
+        // the insertion and search are generally used, remove is not much used, but the
+        // implementation is provided
+        remove(root, "thee", 0);
+        System.out.println(search("thee"));
     }
 }
