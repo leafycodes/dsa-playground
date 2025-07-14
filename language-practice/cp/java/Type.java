@@ -1,23 +1,21 @@
-import java.util.*;
-
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ * int val;
+ * ListNode next;
+ * ListNode() {}
+ * ListNode(int val) { this.val = val; }
+ * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
 class Solution {
-    public int matchPlayersAndTrainers(int[] players, int[] trainers) {
-        Arrays.sort(players);
-        Arrays.sort(trainers);
-
-        int count = 0;
-        int j = 0;
-        for (int i = 0; i < players.length; i++) {
-            while (j < trainers.length && players[i] > trainers[j]) {
-                j++;
-            }
-
-            if (j < trainers.length && players[i] <= trainers[j]) {
-                count++;
-                j++;
-            }
+    public int getDecimalValue(ListNode head) {
+        ListNode curr = head;
+        int num = 0;
+        while (curr != null) {
+            num = ((num << 1) | curr.val);
+            curr = curr.next;
         }
-
-        return count;
+        return num;
     }
 }
