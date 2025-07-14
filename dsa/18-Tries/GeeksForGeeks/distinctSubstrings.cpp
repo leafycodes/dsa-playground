@@ -4,6 +4,8 @@ using namespace std;
 struct Node {
     Node* child[26];
     int freq;
+    // the frequency is not needed to be stored, but i used the code form a
+    // previous question, thus just pasted it here
 
     Node() : freq(1) {
         for (int i = 0; i < 26; i++) {
