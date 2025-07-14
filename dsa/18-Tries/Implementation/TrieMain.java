@@ -75,6 +75,20 @@ public class TrieMain {
         return false;
     }
 
+    public static boolean startsWith(String word) {
+        Node curr = root;
+        for (char ch : word.toCharArray()) {
+            int i = ch - 'a';
+            if (curr.child[i] == null) {
+                return false;
+            }
+
+            curr = curr.child[i];
+        }
+
+        return true;
+    }
+
     public static void main(String[] args) {
         String words[] = { "the", "a", "there", "their", "any", "thee" };
 
@@ -87,5 +101,7 @@ public class TrieMain {
         // implementation is provided
         remove(root, "thee", 0);
         System.out.println(search("thee"));
+        System.out.println(startsWith("th"));
+        System.out.println(startsWith("apple"));
     }
 }

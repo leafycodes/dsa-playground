@@ -1,33 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
+class Solution {
+   public:
+    void pushZerosToEnd(vector<int>& arr) {
+        // code here
+        int left = 0;
+        int right = arr.size() - 1;
 
-int main() {
-    string str;
-    getline(cin, str);
-    int n = str.length();
+        while (left < right) {
+            if (arr[right] == 0) {
+                right--;
+            }
 
-    if (n == 1) {
-        cout << 1;
-        return 0;
-    }
+            if (arr[left] != 0) {
+                left++;
+            }
 
-    int max_count = 1;
-    int curr_count = 1;
-    char prev = str[0];
-    for (int i = 1; i < n; i++) {
-        if (str[i] == prev) {
-            curr_count += 1;
-        } else {
-            curr_count = 1;
+            if (arr[left] == 0 && arr[right] != 0) {
+                swap(arr[left], arr[right]);
+                left++;
+                right--;
+            }
         }
-
-        max_count = max(max_count, curr_count);
-        prev = str[i];
     }
-
-    cout << max_count;
-
-    return 0;
-}
-
-// CSES
+};
