@@ -1,26 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
-class Solution {
-   public:
-    void pushZerosToEnd(vector<int>& arr) {
-        // code here
-        int left = 0;
-        int right = arr.size() - 1;
 
-        while (left < right) {
-            if (arr[right] == 0) {
-                right--;
-            }
+int main() {
+    string str;
+    getline(cin, str);
 
-            if (arr[left] != 0) {
-                left++;
-            }
-
-            if (arr[left] == 0 && arr[right] != 0) {
-                swap(arr[left], arr[right]);
-                left++;
-                right--;
-            }
+    int count = 0;
+    queue<char> q;
+    for (int i = 0; i < str.length(); i++) {
+        if (str[i] == '`' && q.empty()) {
+            q.push(str[i]);
+        } else if (str[i] == '`') {
+            q.pop();
+            count++;
         }
     }
-};
+
+    cout << count;
+    return 0;
+}
