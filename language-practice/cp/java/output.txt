@@ -1,2 +1,1 @@
-hello, Leaf
-you entered: 1778
+leetcode
