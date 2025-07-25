@@ -3,40 +3,33 @@ using namespace std;
 
 class Solution {
    public:
-    string removeDuplicates(string str, int k) {
-        stack<pair<char, int>> s;
+    int maxSum(vector<int>& nums) {
+        bool all_negative = true;
+        int max_negative_element = INT_MIN;
+        set<int> s;
+        int sum = 0;
 
-        for (int i = 0; i < str.length(); ++i) {
-            if (s.empty() || s.top().first != str[i]) {
-                s.push({str[i], 1});
-            } else {
-                ++s.top().second;
-
-                if (s.top().second >= k) {
-                    s.pop();
+        for (int i = 0; i < nums.size(); i++) {
+            if (nums[i] >= 0) {
+                all_negative = false;
+                if (s.count(nums[i]) == 0) {
+                    sum += nums[i];
+                    s.insert(nums[i]);
                 }
             }
-        }
 
-        string res;
-        while (!s.empty()) {
-            pair<char, int> curr = s.top();
-            s.pop();
-
-            for (int i = 0; i < curr.second; i++) {
-                res += curr.first;
+            if (nums[i] < 0) {
+                max_negative_element = max(max_negative_element, nums[i]);
             }
         }
 
-        reverse(res.begin(), res.end());
-        return res;
+        return all_negative ? max_negative_element : sum;
     }
 };
 
 int main() {
-    string str;
-    cin >> str;
+    vector<int> nums = {1, 2, -1, -2, 1, 0, -1};
     Solution s;
-    cout << s.removeDuplicates("deeedbbcccbdaa", 3);
+    cout << s.maxSum(nums);
     return 0;
 }
