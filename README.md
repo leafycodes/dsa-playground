@@ -1,20 +1,25 @@
 # 🎡 DSA Playground
-*Tinkering with Java Data Structures & Algorithms—where bugs turn into lessons!*
+*Tinkering with Data Structures & Algorithms—where bugs turn into lessons!*
 
 ## 📚 DSA Topics Checklist
 
-### Basics
-- Fundamentals
-  - Sum of digits
-  -  Factorial
-  - Reverse, Palindrome, Prime, Odd-Even
-  - Largest or Smallest among two/three
-  - Decimal/Binary to Binary/Decimal
-  - Binary Coefficient
-
-- Basic Nested Loops
-  - Triagles, Squares, Rhombus
-  - Hollow Shapes
-  - Diamond Shapes
-  - Butterfly
-  - Number Pyramids and half pyramids
+- Arrays
+- Sorting Algorithms
+- 2D Arrays
+- Strings
+- Bit Manipulation
+- Recursion
+- Divide and Conquer
+- Backtracking
+- ArrayLists
+- LinkedLists
+- Stacks
+- Queues
+- Greedy Algorithms
+- Trees
+- Heaps
+- Hashing (Maps, Sets)
+- Tries
+- Graphs
+- Dynamic Programming
+- Segment Trees
