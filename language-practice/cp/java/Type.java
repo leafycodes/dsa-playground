@@ -1,47 +1,46 @@
-import java.util.Scanner;
-import java.util.Stack;
-
-class Pair {
-    char ch;
-    int fq;
-
-    Pair(char ch, int fq) {
-        this.ch = ch;
-        this.fq = fq;
-    }
-}
+import java.util.HashSet;
+import java.util.Set;
 
 class Solution {
-    public static String makeFancyString(String s) {
-        Stack<Pair> st = new Stack<>();
-        for (int i = 0; i < s.length(); i++) {
-            if (st.isEmpty() || st.peek().ch != s.charAt(i)) {
-                st.push(new Pair(s.charAt(i), 1));
-            } else if (st.peek().ch == s.charAt(i)) {
-                st.peek().fq++;
-                if (st.peek().fq >= 3) {
-                    st.peek().fq = 2;
+    public int maxSum(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+
+        boolean allNeg = true;
+        int maxNeg = Integer.MIN_VALUE;
+        for (int num : nums) {
+            if (num >= 0) {
+                allNeg = false;
+            }
+            maxNeg = Math.max(maxNeg, num);
+        }
+
+        if (allNeg) {
+            return maxNeg;
+        }
+
+        Set<Integer> set = new HashSet<>();
+        int max = 0;
+
+        for (int j = 0; j < nums.length; j++) {
+            if (nums[j] > 0) {
+                if (!set.contains(nums[j])) {
+                    set.add(nums[j]);
+                    max += nums[j];
                 }
             }
         }
 
-        StringBuilder res = new StringBuilder();
-        while (!st.isEmpty()) {
-            Pair curr = st.pop();
-            for (int i = 0; i < curr.fq; i++) {
-                res.append(curr.ch);
-            }
-        }
-
-        return res.reverse().toString();
+        return max;
     }
 }
 
 public class Type {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String str = sc.nextLine();
-        System.out.println(Solution.makeFancyString(str));
-        sc.close();
+        int nums[] = { -95, 23, 23, -94 };
+        Solution s = new Solution();
+        int res = s.maxSum(nums);
+        System.out.println(res);
     }
 }
