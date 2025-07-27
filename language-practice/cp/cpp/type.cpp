@@ -1,35 +1,35 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-class Solution {
-   public:
-    int maxSum(vector<int>& nums) {
-        bool all_negative = true;
-        int max_negative_element = INT_MIN;
-        set<int> s;
-        int sum = 0;
-
-        for (int i = 0; i < nums.size(); i++) {
-            if (nums[i] >= 0) {
-                all_negative = false;
-                if (s.count(nums[i]) == 0) {
-                    sum += nums[i];
-                    s.insert(nums[i]);
-                }
-            }
-
-            if (nums[i] < 0) {
-                max_negative_element = max(max_negative_element, nums[i]);
-            }
-        }
-
-        return all_negative ? max_negative_element : sum;
+void helper() {
+    int n, c;
+    cin >> n >> c;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
     }
-};
+
+    sort(a.begin(), a.end());
+    long long res = 0;
+    long long multiplier = 1;
+    for (int i = 0; i < n; i++) {
+        long long cost = (long long)(a[i] * (1LL << i));
+        if (cost > c) {
+            res++;
+        }
+    }
+
+    cout << res << endl;
+}
 
 int main() {
-    vector<int> nums = {1, 2, -1, -2, 1, 0, -1};
-    Solution s;
-    cout << s.maxSum(nums);
+    int t;
+    cin >> t;
+    while (t--) {
+        helper();
+    }
+
     return 0;
 }
