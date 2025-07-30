@@ -1,33 +1,67 @@
-#include <algorithm>
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 
-void helper() {
-    int n, c;
-    cin >> n >> c;
-    vector<int> a(n);
-    for (int i = 0; i < n; i++) {
-        cin >> a[i];
+bool split(string& s, int n, int min_score, int k) {
+    int cnt = 0;
+    int i = 0;
+    while (i < n) {
+        int cz = 0;
+        int co = 0;
+        int j = i;
+        while (j < n) {
+            if (s[j] == '0') {
+                ++cz;
+            } else {
+                ++co;
+            }
+
+            if (cz + co >= min_score) {
+                break;
+            }
+            j++;
+        }
+
+        if (cz + co < min_score) {
+            break;
+        }
+        cnt++;
+        i = j + 1;
     }
 
-    sort(a.begin(), a.end());
-    long long res = 0;
-    long long multiplier = 1;
-    for (int i = 0; i < n; i++) {
-        long long cost = (long long)(a[i] * (1LL << i));
-        if (cost > c) {
-            res++;
+    return cnt >= k;
+}
+
+int max_score(string s, int n, int k) {
+    int left = 1;
+    int right = n;
+    int res = 0;
+
+    while (left <= right) {
+        int mid = (left + right) / 2;
+        if (split(s, n, mid, k)) {
+            res = mid;
+            left = mid + 1;
+        } else {
+            right = mid - 1;
         }
     }
 
-    cout << res << endl;
+    return res;
+}
+
+void helper() {
+    int n, k;
+    string s;
+    cin >> n >> k;
+    cin >> s;
+
+    cout << max_score(s, n, k) << endl;
 }
 
 int main() {
     int t;
     cin >> t;
-    while (t--) {
+    while (t-- > 0) {
         helper();
     }
 
