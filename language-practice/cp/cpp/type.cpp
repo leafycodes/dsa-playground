@@ -1,61 +1,53 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <iostream>
+#include <map>
+#include <vector>
 using namespace std;
 
-bool split(string& s, int n, int min_score, int k) {
-    int cnt = 0;
-    int i = 0;
-    while (i < n) {
-        int cz = 0;
-        int co = 0;
-        int j = i;
-        while (j < n) {
-            if (s[j] == '0') {
-                ++cz;
-            } else {
-                ++co;
-            }
+void helper() {
+    int n;
+    cin >> n;
+    vector<int> nums(n);
+    map<int, int> freq;
+    long long total_sum = 0;
 
-            if (cz + co >= min_score) {
+    for (int i = 0; i < n; i++) {
+        cin >> nums[i];
+        freq[nums[i]]++;
+        total_sum += nums[i];
+    }
+
+    long long score = total_sum;
+
+    for (int i = 0; i <= 50; i++) {
+        long long curr = 0;
+        bool form_mex = true;
+
+        for (int j = 0; j < i; j++) {
+            if (freq[j] == 0) {
+                form_mex = false;
                 break;
             }
-            j++;
         }
 
-        if (cz + co < min_score) {
-            break;
-        }
-        cnt++;
-        i = j + 1;
-    }
+        if (form_mex) {
+            curr += i;
+            for (auto const& f : freq) {
+                int val = f.first;
+                int cnt = f.second;
 
-    return cnt >= k;
-}
+                if (val >= i) {
+                    curr += (long long)val * cnt;
+                } else {
+                    curr += (long long)val * (cnt - 1);
+                }
+            }
 
-int max_score(string s, int n, int k) {
-    int left = 1;
-    int right = n;
-    int res = 0;
-
-    while (left <= right) {
-        int mid = (left + right) / 2;
-        if (split(s, n, mid, k)) {
-            res = mid;
-            left = mid + 1;
-        } else {
-            right = mid - 1;
+            score = max(score, curr);
         }
     }
 
-    return res;
-}
-
-void helper() {
-    int n, k;
-    string s;
-    cin >> n >> k;
-    cin >> s;
-
-    cout << max_score(s, n, k) << endl;
+    cout << score << endl;
 }
 
 int main() {
