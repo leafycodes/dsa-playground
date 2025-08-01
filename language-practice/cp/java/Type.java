@@ -1,30 +1,32 @@
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-public class Type {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int[] nums = new int[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = sc.nextInt();
+class Solution {
+    public List<List<Integer>> generate(int numRows) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (numRows >= 1) {
+            res.add(Arrays.asList(1));
         }
-        sc.close();
 
-        System.out.println(moves(nums));
-    }
+        if (numRows >= 2) {
+            res.add(Arrays.asList(1, 1));
+        }
 
-    public static long moves(int[] nums) {
-        long move = 0;
-        int prev = nums[0];
-
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] < prev) {
-                move += prev - nums[i];
-            } else {
-                prev = nums[i];
+        for (int i = 2; i < numRows; i++) {
+            ArrayList<Integer> temp = new ArrayList<>();
+            for (int j = 0; j <= i; j++) {
+                if (j == 0 || j == i) {
+                    temp.add(1);
+                } else {
+                    int curr = res.get(i - 1).get(j - 1) + res.get(i - 1).get(j);
+                    temp.add(curr);
+                }
             }
+
+            res.add(temp);
         }
 
-        return move;
+        return res;
     }
 }
