@@ -34,6 +34,7 @@ class Solution {
             int s = flight[0];
             int d = flight[1];
             int wt = flight[2];
+
             graph[s].add(new Edge(s, d, wt));
         }
 
