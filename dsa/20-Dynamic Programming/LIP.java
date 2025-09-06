@@ -13,7 +13,7 @@ public class LIP {
         int m = grid.length;
         int n = grid[0].length;
 
-        if (m == 0 && n == 0) {
+        if (m == 0 || n == 0) {
             return 0;
         }
 
