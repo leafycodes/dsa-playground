@@ -1,32 +1,42 @@
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.Collections;
+import java.util.Scanner;
 
-class Solution {
-    public List<List<Integer>> generate(int numRows) {
-        List<List<Integer>> res = new ArrayList<>();
-        if (numRows >= 1) {
-            res.add(Arrays.asList(1));
-        }
+class Type {
+    public static String sortVowels(String s) {
+        int n = s.length();
+        StringBuilder sb = new StringBuilder(s);
 
-        if (numRows >= 2) {
-            res.add(Arrays.asList(1, 1));
-        }
+        // TLe for n^2 approach, so i try to use two lists to store and sort (won't go
+        // TLE)
+        ArrayList<Character> vow = new ArrayList<>();
+        ArrayList<Integer> pos = new ArrayList<>();
 
-        for (int i = 2; i < numRows; i++) {
-            ArrayList<Integer> temp = new ArrayList<>();
-            for (int j = 0; j <= i; j++) {
-                if (j == 0 || j == i) {
-                    temp.add(1);
-                } else {
-                    int curr = res.get(i - 1).get(j - 1) + res.get(i - 1).get(j);
-                    temp.add(curr);
-                }
+        for (int i = 0; i < n; i++) {
+            char ch = s.charAt(i);
+            if (isVowel(ch)) {
+                vow.add(ch);
+                pos.add(i);
             }
-
-            res.add(temp);
         }
 
-        return res;
+        Collections.sort(vow); // will sort the char and then i can put them in the earlier positions
+        for (int i = 0; i < pos.size(); i++) {
+            sb.setCharAt(pos.get(i), vow.get(i));
+        }
+
+        return sb.toString();
+    }
+
+    private static boolean isVowel(char ch) {
+        ch = Character.toLowerCase(ch);
+        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        sc.close();
+        System.out.println(sortVowels(s));
     }
 }
