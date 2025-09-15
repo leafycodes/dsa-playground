@@ -5,7 +5,7 @@ public class SegmentTree {
         tree = new int[4 * n];
     }
 
-    // recursively build the segment tree -> O(logn)
+    // recursively build the segment tree -> O(n)
     private static int build(int nums[], int i, int left, int right) {
         if (left == right) {
             tree[i] = nums[left];
