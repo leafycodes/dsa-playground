@@ -26,7 +26,7 @@ public class SegmentTree {
     }
 
     private static int getSumHelper(int i, int si, int sj, int qi, int qj) {
-        if (qj <= si || qi >= sj) { // no overlap
+        if (qj < si || qi > sj) { // no overlap
             return 0;
         } else if (si >= qi && sj <= qj) { // complete overlap
             return tree[i];
